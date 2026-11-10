@@ -1,0 +1,133 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 32px;
+}
+
+.header {
+  width: 100%;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px 72px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.header p {
+  margin: 0;
+  color: #f3c6d0;
+}
+
+.card {
+  width: min(560px, calc(100% - 32px));
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px;
+  margin-top: 20px;
+}
+
+.card:first-of-type {
+  margin-top: -44px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.1);
+}
+
+.card h2 {
+  margin: 0 0 18px;
+  font-size: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field select {
+  padding: 10px 12px;
+  border: 1px solid #c3cad8;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 3px solid #f0c9d1;
+  border-color: var(--brand);
+}
+
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.register-btn:hover {
+  background: var(--brand-dark);
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.alert.success {
+  background: #e3f4f1;
+  color: #0a5a54;
+}
+
+.alert.error {
+  background: #fdeae8;
+  color: #8c1d14;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
