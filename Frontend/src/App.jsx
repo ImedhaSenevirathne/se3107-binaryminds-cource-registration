@@ -1,15 +1,16 @@
+
 import { useState } from 'react'
 import './App.css'
 
 const COURSES = [
-  'Programming Fundamentals',
-  'Discrete Mathematics',
-  'Data Structures and Algorithms',
-  'Database Systems',
-  'Object-Oriented Programming',
-  'Web Systems and Technologies',
-  'Software Engineering Foundations',
-  'Computer Networks',
+  'SE3101 - Network Protocols',
+  'SE3102 - Formal Methods',
+  'SE3103 - Object Oriented Analsis and Design',
+  'SE3104 - Requirements Validation',
+  'SE3105 - Software Design Concepts',
+  'SE3106 - Web Systems and Technologies',
+  'SE3107 - Software Engineering Foundations',
+  'SE-EAP-2101 - Academic English I ',
 ]
 
 function App() {
@@ -26,21 +27,45 @@ function App() {
     const id = studentId.trim()
 
     const alreadyRegistered = registrations.some(
-      (r) => r.studentId.toLowerCase() === id.toLowerCase() && r.courseName === courseName,
+      (r) =>
+        r.studentId.toLowerCase() === id.toLowerCase() &&
+        r.courseName === courseName,
     )
+
     if (alreadyRegistered) {
-      setMessage({ type: 'error', text: `${name} is already registered for ${courseName}.` })
+      setMessage({
+        type: 'error',
+        text: `${name} is already registered for ${courseName}.`,
+      })
       return
     }
 
-    setRegistrations([...registrations, { studentName: name, studentId: id, courseName }])
-    setMessage({ type: 'success', text: `${name} (${id}) is now registered for ${courseName}.` })
+    setRegistrations([
+      ...registrations,
+      {
+        studentName: name,
+        studentId: id,
+        courseName,
+      },
+    ])
+
+    setMessage({
+      type: 'success',
+      text: `${name} (${id}) is now registered for ${courseName}.`,
+    })
+
     setCourseName('')
   }
 
   return (
     <main className="page">
       <header className="header">
+        <img
+          src="/binary-mind-logo.png"
+          alt="Binary Mind Logo"
+          className="team-logo"
+        />
+
         <h1>University Course Registration System</h1>
         <p>Enter your details and choose a course to register.</p>
       </header>
@@ -90,6 +115,7 @@ function App() {
               <option value="" disabled>
                 Select a course
               </option>
+
               {COURSES.map((course) => (
                 <option key={course} value={course}>
                   {course}
@@ -107,6 +133,7 @@ function App() {
       {registrations.length > 0 && (
         <section className="card">
           <h2>Registered courses</h2>
+
           <table>
             <thead>
               <tr>
@@ -115,6 +142,7 @@ function App() {
                 <th>Course Name</th>
               </tr>
             </thead>
+
             <tbody>
               {registrations.map((r, i) => (
                 <tr key={i}>
@@ -128,7 +156,7 @@ function App() {
         </section>
       )}
 
-      <footer className="footer">Binary Mind</footer>
+      <footer className="footer">-- Binary Mind --</footer>
     </main>
   )
 }
